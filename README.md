@@ -39,5 +39,7 @@ npm run lint --fix
 |     moment     |             `npm i moment`             | 时间出力工具 |
 |     bable      | `npm i --save-dev babel-plugin-import` | 样式按需加载 |
 |  good-storage  |   `npm install --save good-storage`    |   本地缓存   |
+|     axios      |          `npm install axios`           |   发送请求   |
+|   js-cookie    |        `npm install js-cookie`         |  cookie操作  |
 
 > 备注：项目构建时，已自动导入`history`路由、`Less`CSS样式、`ESLint `代码校验、`Jest`测试
