@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      defaultSelected: ["1"],
+      defaultSelected: [],
       submitKeys: [],
       openKeys: [],
       menus: [

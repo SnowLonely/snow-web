@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import PowerLack from "../views/error/401.vue";
+import Forbidden from "../views/error/403.vue";
 import Notfound from "../views/error/404.vue";
 import ServiceError from "../views/error/500.vue";
 
@@ -15,6 +16,7 @@ const routes = [
       {
         path: "/login",
         name: "Login",
+        meta: { title: "登录" },
         component: () =>
           import(/* webpackChunkName: "login" */ "../views/Login.vue"),
       },
@@ -28,6 +30,7 @@ const routes = [
       {
         path: "/register",
         name: "Register",
+        meta: { title: "注册" },
         component: () =>
           import(/* webpackChunkName: "register" */ "../views/Register.vue"),
       },
@@ -35,12 +38,14 @@ const routes = [
   },
   {
     path: "/demo",
+    meta: { title: "案例" },
     component: () =>
       import(/* webpackChunkName: "layout" */ "../layouts/BaseLayout.vue"),
     children: [
       {
         path: "/demo/demo1",
         name: "Demo",
+        meta: { title: "案例1" },
         component: () =>
           import(/* webpackChunkName: "login" */ "../views/demo/demo.vue"),
       },
@@ -50,6 +55,11 @@ const routes = [
     path: "/401",
     name: 401,
     component: PowerLack,
+  },
+  {
+    path: "/403",
+    name: 403,
+    component: Forbidden,
   },
   {
     path: "/500",
