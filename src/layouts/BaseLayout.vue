@@ -3,7 +3,7 @@
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
       <a-layout-sider :trigger="null" v-model="collapsed" collapsible>
         <div class="logo" />
-        <Menu />
+        <Menus />
       </a-layout-sider>
       <a-layout>
         <a-layout-header style="background: #fff; padding: 0">
@@ -32,14 +32,14 @@
 
 <script>
 import Header from "./Header.vue";
-import Menu from "./Menu.vue";
+import Menus from "./Menus.vue";
 import Footer from "./Footer.vue";
 import Breadcrumb from "./Breadcrumb.vue";
 
 export default {
   components: {
     Header,
-    Menu,
+    Menus,
     Footer,
     Breadcrumb,
   },
