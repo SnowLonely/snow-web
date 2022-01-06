@@ -52,6 +52,11 @@ export default {
 </script>
 
 <style scoped>
+#components-layout-demo-side .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
 .trigger {
   font-size: 20px;
   padding: 0 20px;
