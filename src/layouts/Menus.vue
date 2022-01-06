@@ -5,6 +5,7 @@
       :open-keys="openKeys"
       mode="inline"
       theme="dark"
+      :inline-collapsed="collapsed"
       @openChange="onOpenChange"
       @click="onMenuClick"
     >
@@ -35,6 +36,7 @@ export default {
       defaultSelected: [],
       submitKeys: [],
       openKeys: [],
+      collapsed: false,
       menus: [
         {
           key: "1",
