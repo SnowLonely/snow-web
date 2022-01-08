@@ -147,7 +147,6 @@ export default {
       } else {
         this.openKeys = []
       }
-      console.log("打开的菜单3：" + this.openKeys);
     },
 
     // 点击按钮时的操作
@@ -160,12 +159,10 @@ export default {
 
     // 设置默认打开菜单以及选择按钮
     setDefaultKeys() {
-      const storageOpenKeys = Storage.get("defaultKeys");
-      console.log("缓存中的默认菜单打开" + storageOpenKeys)
+      const storageOpenKeys = Storage.get("openKeys");
       if (storageOpenKeys) {
         this.openKeys = storageOpenKeys;
       }
-      console.log("打开的菜单1：" + this.openKeys);
 
       const storageDefaultKey = Storage.get("defaultKeys", ["1"]);
 
@@ -193,7 +190,6 @@ export default {
           this.openKeys = storageOpenKeys;
         }
       }
-      console.log("打开的菜单2：" + this.openKeys);
     },
   },
   beforeMount() {
