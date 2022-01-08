@@ -3,7 +3,7 @@
     <a-layout id="components-layout-demo-side" style="min-height: 100vh">
       <a-layout-sider :trigger="null" v-model="collapsed" collapsible>
         <div class="logo" />
-        <Menus ref="changeStatus"/>
+        <Menus ref="changeStatus" />
       </a-layout-sider>
       <a-layout>
         <a-layout-header style="background: #fff; padding: 0">
@@ -52,8 +52,8 @@ export default {
     changeCollapsed() {
       this.collapsed = !this.collapsed;
       this.$refs.changeStatus.changeMenuOpenKeyStatus();
-    }
-  }
+    },
+  },
 };
 </script>
 

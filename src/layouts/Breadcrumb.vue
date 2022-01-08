@@ -1,13 +1,9 @@
 <template>
   <div>
     <a-breadcrumb style="margin: 16px 0">
-      <router-link
-        v-for="(item, index) in breadList"
-        :key="index"
-        :to="{ path: item.path }"
-      >
+      <slot v-for="item in breadList">
         <a-breadcrumb-item>{{ item.meta.title }}</a-breadcrumb-item>
-      </router-link>
+      </slot>
     </a-breadcrumb>
   </div>
 </template>
@@ -34,7 +30,6 @@ export default {
       for (let i = 0; i < matched.length; i++) {
         center.push(matched[i]);
       }
-      console.log(center.length);
 
       this.breadList = center;
     },

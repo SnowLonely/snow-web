@@ -132,7 +132,7 @@ export default {
   methods: {
     // 点击菜单时候的操作
     onOpenChange(openKeys) {
-      if(openKeys != "") {
+      if (openKeys != "") {
         const latestOpenKey = openKeys.find(
           (key) => this.openKeys.indexOf(key) === -1
         );
@@ -142,10 +142,10 @@ export default {
         } else {
           this.openKeys = latestOpenKey ? [latestOpenKey] : [];
         }
-        
+
         Storage.set("openKeys", this.openKeys);
       } else {
-        this.openKeys = []
+        this.openKeys = [];
       }
     },
 
@@ -178,11 +178,11 @@ export default {
       }
     },
 
-    // 设置菜单栏伸缩造成的打开菜单问题 
+    // 设置菜单栏伸缩造成的打开菜单问题
     changeMenuOpenKeyStatus() {
       this.expand = !this.expand;
 
-      if(this.expand) {
+      if (this.expand) {
         this.openKeys = [];
       } else {
         const storageOpenKeys = Storage.get("openKeys");
