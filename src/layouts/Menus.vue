@@ -2,6 +2,7 @@
   <div>
     <a-menu
       :default-selected-keys="defaultSelected"
+      :default-open-keys="['0']"
       :open-keys="openKeys"
       mode="inline"
       theme="dark"
@@ -36,7 +37,7 @@ export default {
       defaultSelected: [],
       submitKeys: [],
       openKeys: [],
-      collapsed: false,
+      collapsed: true,
       menus: [
         {
           key: "1",
@@ -99,19 +100,19 @@ export default {
               icon: "pie-chart",
               children: [
                 {
-                  key: "2.1.1",
+                  key: "3.3.1",
                   title: "Option 2.1.1",
                   icon: "mail",
                   url: "/demo/demo1",
                 },
                 {
-                  key: "2.1.2",
+                  key: "3.3.2",
                   title: "Option 2.1.2",
                   icon: "mail",
                   url: "/demo/demo1",
                 },
                 {
-                  key: "2.1.3",
+                  key: "3.3.3",
                   title: "Option 2.1.3",
                   icon: "mail",
                   url: "/demo/demo1",
