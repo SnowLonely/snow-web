@@ -47,7 +47,21 @@ const routes = [
         name: "Demo",
         meta: { title: "案例1" },
         component: () =>
-          import(/* webpackChunkName: "login" */ "../views/demo/demo.vue"),
+          import(/* webpackChunkName: "login" */ "../views/demo/demo1.vue"),
+      },
+      {
+        path: "/demo/demo2",
+        name: "Demo",
+        meta: { title: "案例2" },
+        component: () =>
+          import(/* webpackChunkName: "login" */ "../views/demo/demo2.vue"),
+      },
+      {
+        path: "/demo/demo3",
+        name: "Demo",
+        meta: { title: "案例3" },
+        component: () =>
+          import(/* webpackChunkName: "login" */ "../views/demo/demo3.vue"),
       },
     ],
   },

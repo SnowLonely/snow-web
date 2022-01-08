@@ -2,11 +2,11 @@
   <div>
     <a-menu
       :default-selected-keys="defaultSelected"
-      :default-open-keys="['0']"
+      :default-open-keys="openKeys"
       :open-keys="openKeys"
       mode="inline"
       theme="dark"
-      :inline-collapsed="collapsed"
+      :inline-collapsed="expand"
       @openChange="onOpenChange"
       @click="onMenuClick"
     >
@@ -28,7 +28,6 @@ import SubMenu from "./SubMenu.vue";
 import Storage from "good-storage";
 
 export default {
-  name: "Menus",
   components: {
     "sub-menu": SubMenu,
   },
@@ -37,7 +36,7 @@ export default {
       defaultSelected: [],
       submitKeys: [],
       openKeys: [],
-      collapsed: true,
+      expand: false,
       menus: [
         {
           key: "1",
@@ -65,13 +64,13 @@ export default {
                   key: "2.1.2",
                   title: "Option 2.1.2",
                   icon: "mail",
-                  url: "/demo/demo1",
+                  url: "/demo/demo2",
                 },
                 {
                   key: "2.1.3",
                   title: "Option 2.1.3",
                   icon: "mail",
-                  url: "/demo/demo1",
+                  url: "/demo/demo3",
                 },
               ],
             },
@@ -109,13 +108,13 @@ export default {
                   key: "3.3.2",
                   title: "Option 2.1.2",
                   icon: "mail",
-                  url: "/demo/demo1",
+                  url: "/demo/demo2",
                 },
                 {
                   key: "3.3.3",
                   title: "Option 2.1.3",
                   icon: "mail",
-                  url: "/demo/demo1",
+                  url: "/demo/demo3",
                 },
               ],
             },
@@ -131,20 +130,27 @@ export default {
     };
   },
   methods: {
+    // 点击菜单时候的操作
     onOpenChange(openKeys) {
-      const latestOpenKey = openKeys.find(
-        (key) => this.openKeys.indexOf(key) === -1
-      );
+      if(openKeys != "") {
+        const latestOpenKey = openKeys.find(
+          (key) => this.openKeys.indexOf(key) === -1
+        );
 
-      if (this.submitKeys.indexOf(latestOpenKey) === -1) {
-        this.openKeys = openKeys;
+        if (this.submitKeys.indexOf(latestOpenKey) === -1) {
+          this.openKeys = openKeys;
+        } else {
+          this.openKeys = latestOpenKey ? [latestOpenKey] : [];
+        }
+        
+        Storage.set("openKeys", this.openKeys);
       } else {
-        this.openKeys = latestOpenKey ? [latestOpenKey] : [];
+        this.openKeys = []
       }
-
-      Storage.set("openKeys", this.openKeys);
+      console.log("打开的菜单3：" + this.openKeys);
     },
 
+    // 点击按钮时的操作
     onMenuClick(item) {
       const data = [];
 
@@ -152,12 +158,14 @@ export default {
       Storage.set("defaultKeys", data);
     },
 
+    // 设置默认打开菜单以及选择按钮
     setDefaultKeys() {
-      const storageOpenKeys = Storage.get("openKeys");
-
+      const storageOpenKeys = Storage.get("defaultKeys");
+      console.log("缓存中的默认菜单打开" + storageOpenKeys)
       if (storageOpenKeys) {
         this.openKeys = storageOpenKeys;
       }
+      console.log("打开的菜单1：" + this.openKeys);
 
       const storageDefaultKey = Storage.get("defaultKeys", ["1"]);
 
@@ -166,10 +174,26 @@ export default {
       }
     },
 
+    //  设置选择的菜单按钮
     getSubmitKeys() {
       for (const menu in this.menus) {
         this.submitKeys.push(this.menus[menu].key);
       }
+    },
+
+    // 设置菜单栏伸缩造成的打开菜单问题 
+    changeMenuOpenKeyStatus() {
+      this.expand = !this.expand;
+
+      if(this.expand) {
+        this.openKeys = [];
+      } else {
+        const storageOpenKeys = Storage.get("openKeys");
+        if (storageOpenKeys) {
+          this.openKeys = storageOpenKeys;
+        }
+      }
+      console.log("打开的菜单2：" + this.openKeys);
     },
   },
   beforeMount() {
