@@ -4,7 +4,14 @@ import router from "./router";
 import store from "./store";
 import api from "./api/api";
 import { doGet, doPost, doPut, doDelete } from "@/utils/http";
-import { Button, Layout, Breadcrumb, Icon, Menu } from "ant-design-vue";
+import {
+  Button,
+  Layout,
+  Breadcrumb,
+  Icon,
+  Menu,
+  Pagination,
+} from "ant-design-vue";
 
 Vue.config.productionTip = false;
 
@@ -19,6 +26,7 @@ Vue.use(Layout);
 Vue.use(Breadcrumb);
 Vue.use(Icon);
 Vue.use(Menu);
+Vue.use(Pagination);
 
 new Vue({
   router,
