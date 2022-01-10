@@ -1,7 +1,7 @@
 const api = {
   getTest: "/api/getTest",
   getParamTest: "/api/getParamTest/",
-  getParam2Test: "/api/getParam2Test?id=",
+  getParam2Test: "/api/getParam2Test",
   postParamTest: "/api/postParamTest",
   postJsonTest: "/api/postJsonTest",
   putParamTest: "/api/putParamTest",

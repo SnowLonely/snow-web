@@ -22,6 +22,9 @@ export default {
     return {
       id: 1,
       result: "e",
+      testData: {
+        id: 0,
+      },
     };
   },
   methods: {
@@ -38,10 +41,8 @@ export default {
     },
 
     doGetParamRequest() {
-      let data = {
-        id: this.id,
-      };
-      this.$get(this.$api.getParam2Test, data).then((res) => {
+      this.testData.id = 1;
+      this.$get(this.$api.getParam2Test, this.testData).then((res) => {
         this.result = res;
       });
     },
