@@ -19,12 +19,12 @@ module.exports = {
     proxy: {
       // 转发规则(可以多个)
       "/api": {
-        target: "http://127.0.0.1:60000", // 转发地址
+        target: "http://127.0.0.1:8080", // 转发地址
         changeOrigin: true, // 是否开启跨域
         ws: true, // websocket是否开启
         // 重写路径
         pathRewrite: {
-          "^/api": "",
+          "^/api": "/api",
         },
       },
     },

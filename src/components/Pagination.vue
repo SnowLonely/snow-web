@@ -29,19 +29,17 @@ export default {
   },
   methods: {
     onChange(page, pageSize) {
-      console.log("每页变化：" + page, pageSize);
       this.current = page;
       this.pageSize = pageSize;
-      // 调用父组件方法
+      // 页码发生变化后，调用父组件方法进行请求
       this.$emit("pageRequest", page, pageSize);
     },
 
     onShowSizeChange(page, pageSize) {
-      console.log("展示条数变化" + page, pageSize);
       this.current = page;
       this.defaultPageSize = pageSize;
 
-      // 调用父组件方法
+      // 每页展示条数发生变化后，调用父组件方法进行请求
       this.$emit("pageRequest", page, pageSize);
     },
   },

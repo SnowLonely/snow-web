@@ -111,7 +111,12 @@ axios.interceptors.response.use(
   }
 );
 
-// 封装get请求
+/**
+ * 封装get请求，
+ * @param {请求地址} url
+ * @param {请求参数：采用？方式拼接} params
+ * @returns
+ */
 export function doGet(url, params = {}) {
   return new Promise((resolve, reject) => {
     axios
@@ -127,7 +132,13 @@ export function doGet(url, params = {}) {
   });
 }
 
-// 封装post请求
+/**
+ * 封装post请求
+ * @param {请求地址} url
+ * @param {请求参数} data
+ * @param {请求方式：true-formData; 空/false-json} field
+ * @returns
+ */
 export function doPost(url, data = {}, field) {
   if (field) {
     return new Promise((resolve, reject) => {
@@ -162,7 +173,13 @@ export function doPost(url, data = {}, field) {
   });
 }
 
-// 封装put请求
+/**
+ * 封装put请求
+ * @param {请求地址} url
+ * @param {请求参数} data
+ * @param {请求方式：true--formData; 空/false--json} field
+ * @returns
+ */
 export function doPut(url, data = {}, field) {
   if (field) {
     return new Promise((resolve, reject) => {
@@ -197,7 +214,13 @@ export function doPut(url, data = {}, field) {
   });
 }
 
-// 封装delete请求
+/**
+ * 封装delete请求
+ * @param {请求地址} url
+ * @param {请求参数} data
+ * @param {请求方式：true--formData; json--json} field
+ * @returns
+ */
 export function doDelete(url, params = {}, field) {
   if (field === "json") {
     const options = {
