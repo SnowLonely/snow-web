@@ -11,7 +11,11 @@ import {
   Icon,
   Menu,
   Pagination,
+  Table,
+  Space,
+  Tag,
 } from "ant-design-vue";
+import "@/styles/btn.less";
 
 Vue.config.productionTip = false;
 
@@ -27,6 +31,9 @@ Vue.use(Breadcrumb);
 Vue.use(Icon);
 Vue.use(Menu);
 Vue.use(Pagination);
+Vue.use(Table);
+Vue.use(Space);
+Vue.use(Tag);
 
 new Vue({
   router,
